@@ -82,40 +82,60 @@ pip install -r requirements.txt
 
 ## 🚀 Usage
 
+The project is controlled through the `main.py` script using the `--mode` flag. Make sure your virtual environment is activated and you are inside the `src/` directory before running any commands.
+
+```bash
+cd src
+```
+
 ### 1. Training the Model
-To start the training pipeline, run the main script. *(Configure hyperparameters in `src/config.py` prior to running).*
+To train the deep learning model from scratch, run:
 ```bash
-python src/main.py
+python main.py --mode train
 ```
-*Alternatively, if training is separated into `train.py`:*
-```bash
-python src/train.py
-```
+This will:
+- Load and preprocess the clinical signal dataset using `wfdb`.
+- Apply data augmentation techniques (`augmentation.py`).
+- Train the model as defined in `models.py` using the configurations set in `config.py`.
+- Save the trained model weights to the `models/` directory.
 
-### 2. Generating Explainability (XAI) Plots
-To generate LIME explanations or general visual interpretability plots for your trained model:
-```bash
-python src/generate_XAI_lime_explanation.py
-python src/generate_XAI_visualizations.py
-```
-*The resulting plots will be saved in the `plots/` directory.*
+> **Tip:** You can modify hyperparameters (learning rate, batch size, epochs, etc.) in `src/config.py` before training.
 
-### 3. Generating Clinical Reports
-To utilize the GenAI module for drafting clinical reports based on the model's findings:
+### 2. Evaluating the Model
+To evaluate a trained model on the test dataset, run:
 ```bash
-python src/generate_GenAI_clinical_report.py
+python main.py --mode eval
 ```
-*Outputs are saved in the `reports/` folder.*
+This will:
+- Load the saved model weights from the `models/` directory.
+- Run inference on the test set.
+- Print evaluation metrics such as accuracy, precision, recall, and F1-score.
+
+### 3. Generating Plots and Visualizations
+To generate all evaluation and performance plots, run:
+```bash
+python generate_plots.py
+```
+This will produce plots including ROC curves, confusion matrices, and performance comparisons, saved in the `plots/` directory.
+
+**Additional visualization scripts:**
+| Script | Description |
+|---|---|
+| `python generate_XAI_visualizations.py` | Generate Grad-CAM, SHAP, and DeepLift explainability plots |
+| `python generate_XAI_lime_explanation.py` | Generate LIME-based local explanations |
+| `python generate_DL_evaluation_curves.py` | Generate ROC, Precision-Recall, and Calibration curves |
+| `python generate_DL_benchmark_comparison.py` | Compare model performance against standard benchmarks |
+| `python generate_DL_error_analysis.py` | Analyze and visualize model prediction errors |
+| `python generate_performance_comparison.py` | Generate performance comparison tables |
+| `python generate_GenAI_clinical_report.py` | Generate AI-powered clinical reports (saved in `reports/`) |
+| `python generate_CV_Visualization_report.py` | Generate cross-validation visualization reports |
 
 ### 4. Launching the Dashboard
-To start the interactive visualization dashboard (e.g., using Streamlit/Dash):
+To start the interactive visualization dashboard powered by Streamlit:
 ```bash
-# Example if using Streamlit:
-streamlit run src/dashboard.py
-
-# Example if using standard python script:
-python src/dashboard.py
+streamlit run dashboard.py
 ```
+This will open a local web server (usually at `http://localhost:8501`) in your browser where you can interactively explore model performance, signal visualizations, and XAI outputs.
 
 ---
 
@@ -131,7 +151,7 @@ python src/dashboard.py
 ## 🎓 Author
 **Rajesh Kumar**
 - Roll Number: M25AI1093
-- Program: M.Tech Project (MTP-2)
+- Program: M.Tech Project
 - Institution: IIT Jodhpur
 
 ---
