@@ -1,10 +1,10 @@
-# AI-Driven Clinical Signal Analysis & Interpretability
+# Cardiac Anomaly Detection Using Explainable AI on ECG Time-Series Signals
 
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c?logo=pytorch&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-M.Tech_Project-success)
 
-This repository contains the source code for the M.Tech Project (MTP-2) developed by **Rajesh Kumar (M25AI1093)**. 
+This repository contains the source code for the M.Tech Project developed by **Rajesh Kumar**. 
 It features a comprehensive Deep Learning pipeline designed for analyzing medical physiological signals (utilizing `wfdb`). The project goes beyond basic prediction by incorporating state-of-the-art **Explainable AI (XAI)** techniques and automated **Generative AI clinical report generation**.
 
 ---
