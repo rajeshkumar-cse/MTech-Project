@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+env/
+mtp-env/
+venv/
+ENV/
+
+# PyTorch Model Weights (Often too large for GitHub)
+*.pth
+*.pt
+*.ckpt
+models/
+
+# Log and temporary files
+logs/
+temp/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific ignores
+Submission/
+Final Submission Report/*
+!Final Submission Report/main.pdf
+Draft_Ppt.pptx
+M25AI1093_Rajesh Kumar_MTP_Report_backup.pdf
