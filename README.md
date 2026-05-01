@@ -26,14 +26,14 @@ It features a comprehensive Deep Learning pipeline designed for analyzing medica
 The following diagram illustrates the end-to-end pipeline of the project:
 
 ```mermaid
-flowchart LR
-    A["📡 Signal Acquisition\n(WFDB)"] --> B["⚙️ Preprocessing\n& Augmentation"]
-    B --> C["🧠 Deep Learning\nModel Training"]
-    C --> D["📊 Evaluation\n& Benchmarking"]
-    C --> E["🔍 XAI Module\n(SHAP / LIME / Grad-CAM)"]
-    D --> F["📈 Visualization\nDashboard"]
+flowchart TD
+    A["📡 Signal Acquisition (WFDB)"] --> B["⚙️ Preprocessing & Augmentation"]
+    B --> C["🧠 Deep Learning Model Training"]
+    C --> D["📊 Evaluation & Benchmarking"]
+    C --> E["🔍 XAI Module (SHAP / LIME / Grad-CAM)"]
+    D --> F["📈 Visualization Dashboard"]
     E --> F
-    E --> G["📝 GenAI Clinical\nReport Generation"]
+    E --> G["📝 GenAI Clinical Report Generation"]
 
     style A fill:#4a90d9,stroke:#333,color:#fff
     style B fill:#50c878,stroke:#333,color:#fff
