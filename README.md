@@ -27,21 +27,45 @@ The following diagram illustrates the end-to-end pipeline of the project:
 
 ```mermaid
 flowchart TD
-    A["📡 Signal Acquisition (WFDB)"] --> B["⚙️ Preprocessing & Augmentation"]
-    B --> C["🧠 Deep Learning Model Training"]
-    C --> D["📊 Evaluation & Benchmarking"]
-    C --> E["🔍 XAI Module (SHAP / LIME / Grad-CAM)"]
-    D --> F["📈 Visualization Dashboard"]
-    E --> F
-    E --> G["📝 GenAI Clinical Report Generation"]
+    subgraph INPUT["🔹 Data Ingestion"]
+        A(["📡 Signal Acquisition<br/>using WFDB Library"])
+    end
 
-    style A fill:#4a90d9,stroke:#333,color:#fff
-    style B fill:#50c878,stroke:#333,color:#fff
-    style C fill:#ff6b6b,stroke:#333,color:#fff
-    style D fill:#ffa07a,stroke:#333,color:#fff
-    style E fill:#9b59b6,stroke:#333,color:#fff
-    style F fill:#f39c12,stroke:#333,color:#fff
-    style G fill:#1abc9c,stroke:#333,color:#fff
+    subgraph PROCESSING["🔹 Core Pipeline"]
+        B(["⚙️ Preprocessing<br/>& Augmentation"])
+        C(["🧠 Deep Learning<br/>Model Training"])
+    end
+
+    subgraph ANALYSIS["🔹 Analysis & Interpretation"]
+        D(["📊 Evaluation<br/>& Benchmarking"])
+        E(["🔍 XAI Module<br/>SHAP / LIME / Grad-CAM"])
+    end
+
+    subgraph OUTPUT["🔹 Outputs"]
+        F(["📈 Visualization<br/>Dashboard"])
+        G(["📝 GenAI Clinical<br/>Report Generation"])
+    end
+
+    A ==> B
+    B ==> C
+    C ==> D
+    C ==> E
+    D --> F
+    E --> F
+    E --> G
+
+    style A fill:#2563eb,stroke:#1e40af,color:#fff,stroke-width:2px,font-size:14px
+    style B fill:#059669,stroke:#047857,color:#fff,stroke-width:2px,font-size:14px
+    style C fill:#dc2626,stroke:#b91c1c,color:#fff,stroke-width:2px,font-size:14px
+    style D fill:#ea580c,stroke:#c2410c,color:#fff,stroke-width:2px,font-size:14px
+    style E fill:#7c3aed,stroke:#6d28d9,color:#fff,stroke-width:2px,font-size:14px
+    style F fill:#d97706,stroke:#b45309,color:#fff,stroke-width:2px,font-size:14px
+    style G fill:#0d9488,stroke:#0f766e,color:#fff,stroke-width:2px,font-size:14px
+
+    style INPUT fill:#eff6ff,stroke:#93c5fd,stroke-width:2px,color:#1e3a5f,font-weight:bold
+    style PROCESSING fill:#f0fdf4,stroke:#86efac,stroke-width:2px,color:#14532d,font-weight:bold
+    style ANALYSIS fill:#faf5ff,stroke:#c4b5fd,stroke-width:2px,color:#3b0764,font-weight:bold
+    style OUTPUT fill:#fffbeb,stroke:#fcd34d,stroke-width:2px,color:#78350f,font-weight:bold
 ```
 
 ---
