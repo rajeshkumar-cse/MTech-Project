@@ -33,7 +33,7 @@ flowchart TD
     D["📊 <b>Evaluation</b><br/><b>& Benchmarking</b>"]
     E["🔍 <b>XAI Module</b><br/>SHAP · LIME · Grad-CAM"]
     F["📈 <b>Visualization</b><br/><b>Dashboard</b>"]
-    G["📝 <b>GenAI Clinical</b><br/><b>Report Generation</b>"]
+    G["📝 <b>GenAI Clinical</b><br/><b>Report</b><br/><b>Generation</b>"]
 
     A -- "Raw ECG Signals" --> B
     B -- "Clean Data" --> C
