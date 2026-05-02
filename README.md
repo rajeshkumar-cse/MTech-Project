@@ -27,45 +27,37 @@ The following diagram illustrates the end-to-end pipeline of the project:
 
 ```mermaid
 flowchart TD
-    subgraph INPUT["🔹 Data Ingestion"]
-        A(["📡 Signal Acquisition<br/>using WFDB Library"])
-    end
+    A["📡 <b>Signal Acquisition</b><br/>WFDB Library"]
+    B["⚙️ <b>Preprocessing</b><br/><b>& Augmentation</b>"]
+    C["🧠 <b>Deep Learning</b><br/><b>Model Training</b>"]
+    D["📊 <b>Evaluation</b><br/><b>& Benchmarking</b>"]
+    E["🔍 <b>XAI Module</b><br/>SHAP · LIME · Grad-CAM"]
+    F["📈 <b>Visualization</b><br/><b>Dashboard</b>"]
+    G["📝 <b>GenAI Clinical</b><br/><b>Report Generation</b>"]
 
-    subgraph PROCESSING["🔹 Core Pipeline"]
-        B(["⚙️ Preprocessing<br/>& Augmentation"])
-        C(["🧠 Deep Learning<br/>Model Training"])
-    end
+    A -- "Raw ECG Signals" --> B
+    B -- "Clean Data" --> C
+    C -- "Trained Model" --> D
+    C -- "Trained Model" --> E
+    D -- "Metrics" --> F
+    E -- "Explanations" --> F
+    E -- "Insights" --> G
 
-    subgraph ANALYSIS["🔹 Analysis & Interpretation"]
-        D(["📊 Evaluation<br/>& Benchmarking"])
-        E(["🔍 XAI Module<br/>SHAP / LIME / Grad-CAM"])
-    end
+    style A fill:#1d4ed8,stroke:#1e3a8a,color:#fff,stroke-width:3px,rx:12,ry:12
+    style B fill:#059669,stroke:#065f46,color:#fff,stroke-width:3px,rx:12,ry:12
+    style C fill:#dc2626,stroke:#991b1b,color:#fff,stroke-width:3px,rx:12,ry:12
+    style D fill:#ea580c,stroke:#9a3412,color:#fff,stroke-width:3px,rx:12,ry:12
+    style E fill:#7c3aed,stroke:#5b21b6,color:#fff,stroke-width:3px,rx:12,ry:12
+    style F fill:#ca8a04,stroke:#854d0e,color:#fff,stroke-width:3px,rx:12,ry:12
+    style G fill:#0d9488,stroke:#115e59,color:#fff,stroke-width:3px,rx:12,ry:12
 
-    subgraph OUTPUT["🔹 Outputs"]
-        F(["📈 Visualization<br/>Dashboard"])
-        G(["📝 GenAI Clinical<br/>Report Generation"])
-    end
-
-    A ==> B
-    B ==> C
-    C ==> D
-    C ==> E
-    D --> F
-    E --> F
-    E --> G
-
-    style A fill:#2563eb,stroke:#1e40af,color:#fff,stroke-width:2px,font-size:14px
-    style B fill:#059669,stroke:#047857,color:#fff,stroke-width:2px,font-size:14px
-    style C fill:#dc2626,stroke:#b91c1c,color:#fff,stroke-width:2px,font-size:14px
-    style D fill:#ea580c,stroke:#c2410c,color:#fff,stroke-width:2px,font-size:14px
-    style E fill:#7c3aed,stroke:#6d28d9,color:#fff,stroke-width:2px,font-size:14px
-    style F fill:#d97706,stroke:#b45309,color:#fff,stroke-width:2px,font-size:14px
-    style G fill:#0d9488,stroke:#0f766e,color:#fff,stroke-width:2px,font-size:14px
-
-    style INPUT fill:#eff6ff,stroke:#93c5fd,stroke-width:2px,color:#1e3a5f,font-weight:bold
-    style PROCESSING fill:#f0fdf4,stroke:#86efac,stroke-width:2px,color:#14532d,font-weight:bold
-    style ANALYSIS fill:#faf5ff,stroke:#c4b5fd,stroke-width:2px,color:#3b0764,font-weight:bold
-    style OUTPUT fill:#fffbeb,stroke:#fcd34d,stroke-width:2px,color:#78350f,font-weight:bold
+    linkStyle 0 stroke:#1d4ed8,stroke-width:2px
+    linkStyle 1 stroke:#059669,stroke-width:2px
+    linkStyle 2 stroke:#dc2626,stroke-width:2px
+    linkStyle 3 stroke:#dc2626,stroke-width:2px
+    linkStyle 4 stroke:#ea580c,stroke-width:2px
+    linkStyle 5 stroke:#7c3aed,stroke-width:2px
+    linkStyle 6 stroke:#7c3aed,stroke-width:2px
 ```
 
 ---
